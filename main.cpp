@@ -1,6 +1,7 @@
 // #!/usr/bin/env python
 // """
-// Trj_modify is used to fit the solute group in trajectory to the center.
+// comes from Trj_modify is used to fit the solute group in trajectory to the center.
+// version 1.0 at 14.11.03
 // @change:
 //     - 2011.12.26.
 //         - Add those words.
