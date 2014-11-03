@@ -59,6 +59,10 @@ void Move_2_center(char * trj_file, char * index_file, char * trjout_file)
         {
             break;
         }
+        if(step % 100000==0)
+        {
+        	cout << "step: "<< step << endl;
+        }
         // # do something with x
         float ref_com[3];
         for(int i=0;i< centering_atoms;i++)
@@ -78,11 +82,18 @@ void Move_2_center(char * trj_file, char * index_file, char * trjout_file)
         {
             for(int j=0;j<3;j++)
             {
-                X_out[i][j] = X_in[i][j] - ref_com[j];       
-                if (X_out[i][j] > box[j][j] or X_out[i][j] <0)
+                X_out[i][j] = X_in[i][j] - ref_com[j];  
+
+                while( X_out[i][j] <0)
+                {
+                	X_out[i][j] += box[j][j];
+                }
+
+                if (X_out[i][j] > box[j][j])
                 {
                     X_out[i][j]=fmod(X_out[i][j],box[j][j]);
                 }
+
             }
         }
         read_return = write_xtc(xtc_out, natoms, step, time_temp, box, X_out, p);
