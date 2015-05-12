@@ -25,6 +25,7 @@ void Print_usage(){
     cout<<"Usage: traj-warp trjfile index.ndx output.xtc"<< endl;
 }
 
+
 void Move_2_center(char * trj_file, char * index_file, char * trjout_file)
 {
 
