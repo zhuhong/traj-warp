@@ -1,5 +1,5 @@
-XDRINC = /home/zhuh/install/xdrfile/include/xdrfile/
-XDRLIB = /home/zhuh/install/xdrfile/lib/
+XDRINC = /opt/xdrfile/include/xdrfile/
+XDRLIB = /opt/xdrfile/lib/
 Closest-solvent : main.o string_operate.o
 	g++ -O2 -I${XDRINC} -o traj-warp main.o string_operate.o -lxdrfile  -L${XDRLIB}
 main.o : main.cpp  read_ndx.h string_operate.h 
